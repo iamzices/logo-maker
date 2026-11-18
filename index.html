@@ -56,6 +56,7 @@
       .preview svg { display: block; }
       #icon svg { width: 8rem; height: 8rem; filter: drop-shadow(0 0.75rem 1.25rem rgb(0 0 0 / 0.35)); animation: pop 0.35s ease-out; }
       #wordmark svg { width: 100%; max-height: 4.5rem; }
+      #wordmark.square svg { height: 100%; max-height: none; }
       @keyframes pop { from { transform: scale(0.8); opacity: 0; } 60% { transform: scale(1.06); } }
       .downloads { display: flex; justify-content: center; align-items: center; gap: 0.125rem; color: var(--muted-foreground); }
       .downloads svg { width: 1rem; height: 1rem; margin-right: 0.25rem; }
@@ -83,12 +84,15 @@
       .mini.blob { border-radius: 58% 42% 55% 45% / 45% 55% 45% 55%; }
       .mini.square { border-radius: 0; }
       .mini.none { border: 1.5px dashed currentColor; background: none; }
+      .mini.checker { background: repeating-conic-gradient(var(--input) 0 25%, var(--foreground) 0 50%) 0 0 / 0.5625rem 0.5625rem; }
+      .mini.ring { box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.3); }
       .mini.solid, .mini.inverse { display: grid; place-items: center; font-size: 0.6875rem; font-weight: 700; }
       .mini.solid { background: var(--c); color: var(--p); }
       .mini.inverse { background: var(--p); color: var(--c); }
       .fx-3d { text-shadow: 1px 1px 0 color-mix(in srgb, currentColor 45%, transparent), 2px 2px 0 color-mix(in srgb, currentColor 25%, transparent); }
       .fx-sticker { color: var(--primary-foreground); -webkit-text-stroke: 4px #fff; paint-order: stroke fill; }
       .fx-gradient { background: linear-gradient(90deg, var(--c), var(--c2)); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700; }
+      .chip input:checked + span .fx-gradient { background: none; color: inherit; }
       #about { display: grid; gap: 2rem; width: 100%; max-width: 48rem; margin: 0 auto; padding: 4rem 1rem; }
       #about div { display: flex; flex-direction: column; gap: 0.5rem; }
       #about h3 { font-size: 1rem; font-weight: 500; }
@@ -107,11 +111,11 @@
       <div id="marks">
         <figure id="icon-tile">
           <div id="icon" class="preview" role="img"></div>
-          <div class="downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg><button data-mark="icon" data-type="svg" aria-label="Download Icon as SVG">SVG</button><button data-mark="icon" data-type="png" aria-label="Download Icon as PNG">PNG</button><button data-mark="icon" data-type="ico" aria-label="Download Icon as ICO">ICO</button></div>
+          <div class="downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg><button data-mark="icon" data-type="svg" aria-label="Download Icon as SVG">SVG</button><button data-mark="icon" data-type="png" aria-label="Download Icon as PNG">PNG</button><button data-mark="icon" data-type="jpg" aria-label="Download Icon as JPG">JPG</button><button data-mark="icon" data-type="ico" aria-label="Download Icon as ICO">ICO</button></div>
         </figure>
         <figure id="wordmark-tile">
           <div id="wordmark" class="preview" role="img"></div>
-          <div class="downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg><button data-mark="wordmark" data-type="svg" aria-label="Download Wordmark as SVG">SVG</button><button data-mark="wordmark" data-type="png" aria-label="Download Wordmark as PNG">PNG</button></div>
+          <div class="downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg><button data-mark="wordmark" data-type="svg" aria-label="Download Wordmark as SVG">SVG</button><button data-mark="wordmark" data-type="png" aria-label="Download Wordmark as PNG">PNG</button><button data-mark="wordmark" data-type="jpg" aria-label="Download Wordmark as JPG">JPG</button></div>
         </figure>
       </div>
       <form id="controls">
@@ -160,6 +164,16 @@
           <label class="chip"><input type="radio" name="case" value="lower" /><span>aa</span></label>
           <label class="chip"><input type="radio" name="case" value="upper" /><span>AA</span></label>
         </fieldset>
+        <fieldset><legend>Background</legend>
+          <label class="chip"><input type="radio" name="background" value="none" aria-label="No Background" checked /><span><i class="mini checker"></i></span></label>
+          <label class="chip"><input type="radio" name="background" value="dark" aria-label="Dark" /><span><i class="mini ring" style="background: #0f0f10"></i></span></label>
+          <label class="chip"><input type="radio" name="background" value="light" aria-label="Light" /><span><i class="mini" style="background: #fafafa"></i></span></label>
+          <label class="chip"><input type="radio" name="background" value="color" aria-label="Color" /><span><i class="mini ring" style="background: var(--c)"></i></span></label>
+        </fieldset>
+        <fieldset><legend>Canvas</legend>
+          <label class="chip"><input type="radio" name="canvas" value="fit" checked /><span>Fit</span></label>
+          <label class="chip"><input type="radio" name="canvas" value="square" /><span>Square</span></label>
+        </fieldset>
       </form>
     </main>
     <section id="about" aria-label="About">
@@ -187,7 +201,7 @@
       }
       const SIZES = { s: 0.8, m: 1, l: 1.15 }, SPACING = { tight: -0.04, normal: 0, wide: 0.1 }
       const EFFECTS = { none: [0, 0, 0, 0], '3d': [0, 0, 0.06, 0.06], sticker: [0.05, 0.05, 0.05, 0.05] }
-      const EM = 1000, PAD = 8, STEPS = 12, PNG_HEIGHT = 1024, PNG_MAX_WIDTH = 8192
+      const EM = 1000, PAD = 8, STEPS = 12, PNG_HEIGHT = 1024, PNG_MAX_WIDTH = 2048
       const $ = id => document.getElementById(id), form = $('controls').elements
 
       const swatches = name => COLORS.map(([label, hex], i) => `<label class="chip swatch"><input type="radio" name="${name}" value="${hex}" aria-label="${label}"${name === 'color' && !i ? ' checked' : ''} /><span style="--s: ${hex}"></span></label>`).join('')
@@ -250,19 +264,24 @@
         return { w: 64, h: 64, body: `${back.def && `<defs>${back.def}</defs>`}${SHAPES[shape].body(back.fill)}${ink('icon-ink', d, EM * s, fore, effect)}` }
       }
 
-      function wordmark({ box: [x1, y1, x2, y2], at }, fore, effect) {
-        return { w: round(x2 - x1 + 2 * PAD), h: round(y2 - y1 + 2 * PAD), body: ink('wordmark-ink', at(PAD - x1, PAD - y1, EM), EM, fore, effect) }
+      function wordmark({ box: [x1, y1, x2, y2], at }, { fore, effect, background, square }) {
+        const tw = x2 - x1, th = y2 - y1, pad = background ? th * 0.3 : PAD
+        const w = square ? Math.hypot(tw, th) * 1.15 : tw + 2 * pad, h = square ? w : th + 2 * pad
+        const back = background ? `<rect width="${round(w)}" height="${round(h)}" fill="${background}"/>` : ''
+        return { w: round(w), h: round(h), body: back + ink('wordmark-ink', at((w - tw) / 2 - x1, (h - th) / 2 - y1, EM), EM, fore, effect) }
       }
 
       let marks = {}, slug = '', shown = {}
       function render() {
-        const v = name => form[name].value, color = v('color') || v('custom'), textColor = v('text') === 'same' ? color : v('text') || v('text-custom')
+        const v = name => form[name].value, color = v('color') || v('custom'), chosen = v('text') === 'same' ? color : v('text') || v('text-custom')
+        const background = { none: '', dark: '#0f0f10', light: '#fafafa', color }[v('background')], textColor = chosen === background ? partner(chosen) : chosen, square = v('canvas') === 'square'
         const gradient = v('fill') === 'gradient', shape = v('shape'), effect = v('effect'), font = fonts[v('font')]
         document.documentElement.style.setProperty('--c', color)
         document.documentElement.style.setProperty('--c2', second(color))
         document.documentElement.style.setProperty('--p', partner(color))
         $('icon-tile').classList.toggle('light', shape === 'none' && !isLight(color))
-        $('wordmark-tile').classList.toggle('light', !isLight(textColor))
+        $('wordmark-tile').classList.toggle('light', !background && !isLight(textColor))
+        $('wordmark').classList.toggle('square', square)
         if (!font) return
         const typed = $('name').value.trim().normalize('NFC'), cased = { none: typed, lower: typed.toLocaleLowerCase(), upper: typed.toLocaleUpperCase() }[v('case')]
         const missing = [...new Set(cased)].filter(c => !font.charToGlyphIndex(c))
@@ -272,8 +291,9 @@
         const tracking = font.tracking + SPACING[v('spacing')], solid = v('style') === 'solid' && shape !== 'none'
         marks = text ? {
           icon: icon(glyphs(font, letters, tracking, effect), { shape, size: v('size'), effect, back: paint('icon-bg', solid ? color : partner(color), solid && gradient), fore: paint('icon-fg', solid ? partner(color) : color, !solid && gradient) }),
-          wordmark: wordmark(glyphs(font, text, tracking, effect), paint('wordmark-fg', textColor, gradient), effect),
+          wordmark: wordmark(glyphs(font, text, tracking, effect), { fore: paint('wordmark-fg', textColor, gradient), effect, background, square }),
         } : {}
+        for (const mark of Object.values(marks)) mark.matte = background || (isLight(textColor) ? '#0f0f10' : '#fafafa')
         slug = text.normalize('NFKD').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'logo'
         $('error').textContent = missing.length ? `Not in this font: ${missing.join(' ')}` : ''
         $('name').setAttribute('aria-invalid', missing.length > 0)
@@ -285,17 +305,19 @@
         for (const b of document.querySelectorAll('.downloads button')) b.disabled = !text
       }
 
-      async function png(mark, w, h) {
+      async function raster(mark, w, h, type = 'image/png') {
         const img = new Image()
         img.src = URL.createObjectURL(new Blob([svg(mark, { w, h })], { type: 'image/svg+xml' }))
         try { await img.decode() } finally { URL.revokeObjectURL(img.src) }
         const canvas = Object.assign(document.createElement('canvas'), { width: w, height: h })
-        canvas.getContext('2d').drawImage(img, 0, 0, w, h)
-        return new Promise(resolve => canvas.toBlob(resolve, 'image/png'))
+        const context = canvas.getContext('2d')
+        if (type === 'image/jpeg') { context.fillStyle = mark.matte; context.fillRect(0, 0, w, h) }
+        context.drawImage(img, 0, 0, w, h)
+        return new Promise(resolve => canvas.toBlob(resolve, type, 0.92))
       }
 
       async function ico(mark, sizes = [16, 32, 48]) {
-        const images = await Promise.all(sizes.map(s => png(mark, s, s).then(b => b.arrayBuffer())))
+        const images = await Promise.all(sizes.map(s => raster(mark, s, s).then(b => b.arrayBuffer())))
         const head = new DataView(new ArrayBuffer(6 + 16 * sizes.length))
         head.setUint16(2, 1, true)
         head.setUint16(4, sizes.length, true)
@@ -318,7 +340,7 @@
         if (!mark) return
         const k = Math.min(PNG_HEIGHT / mark.h, PNG_MAX_WIDTH / mark.w)
         const blob = type === 'svg' ? new Blob([svg(mark)], { type: 'image/svg+xml' })
-          : type === 'png' ? await png(mark, Math.round(mark.w * k), Math.round(mark.h * k)) : await ico(mark)
+          : type === 'ico' ? await ico(mark) : await raster(mark, Math.round(mark.w * k), Math.round(mark.h * k), type === 'jpg' ? 'image/jpeg' : 'image/png')
         const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: `${slug}-${markName}.${type}` })
         a.click()
         setTimeout(() => URL.revokeObjectURL(a.href), 1000)
