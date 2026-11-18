@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f0f10" />
+    <meta name="description" content="Free online logo maker: type a name to get a matching app icon and wordmark in cute fonts, as SVG, PNG or ICO. No login, no watermark." />
+    <meta name="keywords" content="wordmark generator, logo maker, free logo maker, text logo, letter logo, icon generator, app icon maker, favicon generator, svg logo, png logo, ico favicon, 3d logo, gradient logo, no login, no watermark" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="author" content="Zices (@iamzices)" />
+    <link rel="canonical" href="https://iamzices.github.io/logo-maker/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="EasyLogo" />
+    <meta property="og:title" content="EasyLogo: Turn a name into a logo" />
+    <meta property="og:description" content="Type a name to get a matching app icon and wordmark in cute fonts, as SVG, PNG or ICO. Free, no login, no watermark." />
+    <meta property="og:url" content="https://iamzices.github.io/logo-maker/" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"EasyLogo","alternateName":["Wordmark Generator","Logo Maker","Icon Generator","Favicon Generator","Text Logo Maker"],"description":"Free online logo maker that turns a name into a matching app icon and wordmark, as SVG, PNG or ICO. No login, no watermark, no upload.","url":"https://iamzices.github.io/logo-maker/","applicationCategory":"DesignApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Zices","alternateName":"@iamzices","url":"https://zices.com","sameAs":["https://github.com/iamzices"]}}</script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff9ecd'/%3E%3Cpath fill='%233f2c36' d='M46.08 42.11Q46.71 41.85 47.13 41.85L47.13 41.85Q47.81 41.85 48.14 42.36Q48.48 42.87 48.48 43.67L48.48 43.67Q48.48 44.94 47.87 45.82Q47.26 46.71 45.78 47.43L45.78 47.43Q43.29 48.61 39.32 49.30Q35.36 50 31.51 50L31.51 50Q26.20 50 22.61 48.80Q19.02 47.59 17.27 45.48Q15.52 43.37 15.52 40.72L15.52 40.72Q15.52 37.09 17.86 34.53Q20.20 31.98 24.76 30.84L24.76 30.84Q22.27 30.12 20.94 28.31Q19.61 26.49 19.61 24.26L19.61 24.26Q19.61 21.22 21.53 18.87Q23.45 16.53 26.70 15.27Q29.95 14.00 33.84 14.00L33.84 14.00Q39.07 14.00 41.69 16.26Q44.30 18.52 44.30 22.10L44.30 22.10Q44.30 24.59 43.40 26.13Q42.49 27.67 40.80 27.67L40.80 27.67Q39.62 27.67 38.94 27.15Q38.27 26.62 38.27 25.56L38.27 25.56Q38.27 24.85 38.48 24.00L38.48 24.00Q38.69 22.61 38.69 22.10L38.69 22.10Q38.69 20.58 37.55 19.63Q36.41 18.68 33.75 18.68L33.75 18.68Q30.16 18.68 28.01 20.20Q25.86 21.72 25.86 24.30L25.86 24.30Q25.86 26.28 27.48 27.57Q29.11 28.86 32.78 28.98L32.78 28.98Q33.71 29.02 34.09 29.40Q34.47 29.78 34.47 30.67L34.47 30.67Q34.47 33.46 31.94 33.50L31.94 33.50Q28.43 33.58 26.13 34.47Q23.83 35.36 22.80 36.73Q21.77 38.10 21.77 39.66L21.77 39.66Q21.77 42.28 24.21 43.61Q26.66 44.94 31.98 44.94L31.98 44.94Q35.48 44.94 39.39 44.11Q43.29 43.29 46.08 42.11L46.08 42.11Z'/%3E%3C/svg%3E" />
+    <title>EasyLogo: Turn a name into a logo</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&display=swap" />
+    <script src="https://cdn.jsdelivr.net/npm/opentype.js@1.3.4/dist/opentype.min.js" integrity="sha384-3TaxGqyHrMuRIWY5Z5WHNIzgNRqGIUJE+mk6tm+g1wkm9Ux2kUyOLfy9AsNWXA6u" crossorigin="anonymous" defer></script>
+    <style>
+      :root {
+        --background: #0f0f10;
+        --foreground: #fafafa;
+        --card: #1e1e22;
+        --popover: #2c2c31;
+        --accent: #36363c;
+        --primary: #8fd0ff;
+        --primary-foreground: #0f0f10;
+        --muted-foreground: #b4b4bd;
+        --destructive: #ff7b7b;
+        --input: #787881;
+        --dots: radial-gradient(color-mix(in srgb, var(--input) 30%, transparent) 1px, transparent 1.5px) 0 0 / 1.25rem 1.25rem;
+        color-scheme: dark;
+      }
+      * { box-sizing: border-box; margin: 0; }
+      html { font-family: 'DM Sans', sans-serif; font-synthesis: none; -webkit-font-smoothing: antialiased; }
+      body { background: var(--background); color: var(--foreground); min-width: 320px; overscroll-behavior: none; }
+      ::selection { background: var(--primary); color: var(--primary-foreground); }
+      :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+      a { color: var(--primary); text-underline-offset: 3px; }
+      header { display: flex; align-items: center; height: 3.5rem; padding: 0 0.75rem; }
+      header h1 { overflow: hidden; font-size: 1.125rem; font-weight: 600; letter-spacing: -0.025em; text-overflow: ellipsis; white-space: nowrap; }
+      header a { text-decoration: none; }
+      main { display: grid; align-content: center; gap: 1rem; width: 100%; max-width: 46rem; min-height: calc(100dvh - 3.5rem); margin: 0 auto; padding: 1rem 1rem 1.5rem; }
+      #name { width: 100%; height: 4.5rem; padding: 0 1.5rem; border: 0; border-radius: 1.75rem; background: var(--dots), var(--card); color: inherit; caret-color: var(--primary); font: inherit; font-size: 1.75rem; text-align: center; }
+      #name::placeholder { color: var(--input); }
+      #error { min-height: 1.25rem; margin: -0.5rem 0 -0.25rem; color: var(--destructive); font-size: 0.875rem; text-align: center; }
+      #marks { display: grid; grid-template-columns: 15rem 1fr; gap: 1rem; }
+      figure { display: grid; grid-template-rows: 1fr auto; height: 15rem; padding: 1rem 1rem 0.625rem; border-radius: 1.75rem; background: var(--dots), var(--card); transition: background-color 0.2s; }
+      figure.light { background-color: #f4f4f6; }
+      .preview { display: grid; place-items: center; min-height: 0; padding: 0 0.5rem; }
+      .preview svg { display: block; }
+      #icon svg { width: 8rem; height: 8rem; filter: drop-shadow(0 0.75rem 1.25rem rgb(0 0 0 / 0.35)); animation: pop 0.35s ease-out; }
+      #wordmark svg { width: 100%; max-height: 4.5rem; }
+      @keyframes pop { from { transform: scale(0.8); opacity: 0; } 60% { transform: scale(1.06); } }
+      .downloads { display: flex; justify-content: center; align-items: center; gap: 0.125rem; color: var(--muted-foreground); }
+      .downloads svg { width: 1rem; height: 1rem; margin-right: 0.25rem; }
+      .downloads button { height: 2rem; padding: 0 0.625rem; border: 0; border-radius: 999px; background: none; color: inherit; font: inherit; font-size: 0.8125rem; font-weight: 600; cursor: pointer; }
+      .downloads button:hover { background: color-mix(in srgb, currentColor 14%, transparent); }
+      .light .downloads { color: #55555c; }
+      #controls { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 1.5rem; padding: 1.25rem; border-radius: 1.75rem; background: var(--card); }
+      #controls .wide { grid-column: 1 / -1; }
+      fieldset { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; min-width: 0; padding: 0; border: 0; }
+      legend { padding-bottom: 0.5rem; color: var(--muted-foreground); font-size: 0.8125rem; }
+      .chip { position: relative; }
+      .chip input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+      .chip input:disabled { cursor: default; }
+      .chip span { display: flex; align-items: center; justify-content: center; min-width: 2.75rem; height: 2.25rem; padding: 0 0.875rem; border-radius: 999px; background: var(--popover); font-size: 0.9375rem; white-space: nowrap; transition: background 0.15s, color 0.15s; }
+      .chip:hover span { background: var(--accent); }
+      .chip input:checked + span { background: var(--primary); color: var(--primary-foreground); }
+      .chip input:focus-visible + span { outline: 2px solid var(--primary); outline-offset: 2px; }
+      .chip input:disabled + span { opacity: 0.4; }
+      .chip i { font-style: normal; }
+      .swatch span { min-width: 0; width: 2rem; height: 2rem; padding: 0; background: var(--s) !important; box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.12); }
+      .swatch input:checked + span, fieldset:not(:has(:checked)) .custom span { box-shadow: 0 0 0 2px var(--card), 0 0 0 4px var(--foreground); }
+      .custom span { --s: conic-gradient(#ff9ecd, #ffe17a, #8ee6b0, #8fd0ff, #b9a4ff, #ff9ecd); }
+      .mini { width: 1.125rem; height: 1.125rem; border-radius: 0.3rem; background: currentColor; }
+      .mini.circle { border-radius: 50%; }
+      .mini.blob { border-radius: 58% 42% 55% 45% / 45% 55% 45% 55%; }
+      .mini.square { border-radius: 0; }
+      .mini.none { border: 1.5px dashed currentColor; background: none; }
+      .mini.solid, .mini.inverse { display: grid; place-items: center; font-size: 0.6875rem; font-weight: 700; }
+      .mini.solid { background: var(--c); color: var(--p); }
+      .mini.inverse { background: var(--p); color: var(--c); }
+      .fx-3d { text-shadow: 1px 1px 0 color-mix(in srgb, currentColor 45%, transparent), 2px 2px 0 color-mix(in srgb, currentColor 25%, transparent); }
+      .fx-sticker { color: var(--primary-foreground); -webkit-text-stroke: 4px #fff; paint-order: stroke fill; }
+      .fx-gradient { background: linear-gradient(90deg, var(--c), var(--c2)); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700; }
+      #about { display: grid; gap: 2rem; width: 100%; max-width: 48rem; margin: 0 auto; padding: 4rem 1rem; }
+      #about div { display: flex; flex-direction: column; gap: 0.5rem; }
+      #about h3 { font-size: 1rem; font-weight: 500; }
+      #about p { color: var(--muted-foreground); font-size: 0.875rem; line-height: 1.625; }
+      footer { padding: 1.5rem 1rem; border-top: 1px solid var(--popover); color: var(--muted-foreground); font-size: 0.75rem; line-height: 1.625; text-align: center; }
+      @media (min-width: 640px) { header { padding: 0 1rem; } #about { grid-template-columns: 1fr 1fr; padding: 4rem 1.5rem; } }
+      @media (max-width: 559px) { #marks, #controls { grid-template-columns: 1fr; } figure { height: 13rem; } }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+    </style>
+  </head>
+  <body>
+    <header><h1><a href="./">EasyLogo</a></h1></header>
+    <main>
+      <input id="name" aria-label="Name" aria-describedby="error" placeholder="Your text here" value="mochi" maxlength="40" autocomplete="off" spellcheck="false" autofocus />
+      <p id="error" role="status"></p>
+      <div id="marks">
+        <figure id="icon-tile">
+          <div id="icon" class="preview" role="img"></div>
+          <div class="downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg><button data-mark="icon" data-type="svg" aria-label="Download Icon as SVG">SVG</button><button data-mark="icon" data-type="png" aria-label="Download Icon as PNG">PNG</button><button data-mark="icon" data-type="ico" aria-label="Download Icon as ICO">ICO</button></div>
+        </figure>
+        <figure id="wordmark-tile">
+          <div id="wordmark" class="preview" role="img"></div>
+          <div class="downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg><button data-mark="wordmark" data-type="svg" aria-label="Download Wordmark as SVG">SVG</button><button data-mark="wordmark" data-type="png" aria-label="Download Wordmark as PNG">PNG</button></div>
+        </figure>
+      </div>
+      <form id="controls">
+        <fieldset id="fonts" class="wide"><legend>Font</legend></fieldset>
+        <fieldset id="colors" class="wide"><legend>Color</legend><label class="chip swatch custom"><input type="color" name="custom" value="#ff6f91" aria-label="Custom" /><span></span></label></fieldset>
+        <fieldset id="text-colors" class="wide"><legend>Wordmark</legend>
+          <label class="chip same"><input type="radio" name="text" value="same" checked /><span>Same</span></label>
+          <label class="chip swatch custom"><input type="color" name="text-custom" value="#fafafa" aria-label="Custom" /><span></span></label>
+        </fieldset>
+        <fieldset><legend>Fill</legend>
+          <label class="chip"><input type="radio" name="fill" value="flat" checked /><span>Flat</span></label>
+          <label class="chip"><input type="radio" name="fill" value="gradient" /><span><i class="fx-gradient">Gradient</i></span></label>
+        </fieldset>
+        <fieldset><legend>Effect</legend>
+          <label class="chip"><input type="radio" name="effect" value="none" checked /><span>None</span></label>
+          <label class="chip"><input type="radio" name="effect" value="3d" /><span><i class="fx-3d">3D</i></span></label>
+          <label class="chip"><input type="radio" name="effect" value="sticker" /><span><i class="fx-sticker">Sticker</i></span></label>
+        </fieldset>
+        <fieldset><legend>Shape</legend>
+          <label class="chip"><input type="radio" name="shape" value="rounded" aria-label="Rounded" checked /><span><i class="mini"></i></span></label>
+          <label class="chip"><input type="radio" name="shape" value="circle" aria-label="Circle" /><span><i class="mini circle"></i></span></label>
+          <label class="chip"><input type="radio" name="shape" value="blob" aria-label="Blob" /><span><i class="mini blob"></i></span></label>
+          <label class="chip"><input type="radio" name="shape" value="square" aria-label="Square" /><span><i class="mini square"></i></span></label>
+          <label class="chip"><input type="radio" name="shape" value="none" aria-label="No Shape" /><span><i class="mini none"></i></span></label>
+        </fieldset>
+        <fieldset><legend>Style</legend>
+          <label class="chip"><input type="radio" name="style" value="solid" aria-label="Solid" checked /><span><i class="mini solid">A</i></span></label>
+          <label class="chip"><input type="radio" name="style" value="inverse" aria-label="Inverse" /><span><i class="mini inverse">A</i></span></label>
+        </fieldset>
+        <fieldset><legend>Letters</legend>
+          <label class="chip"><input type="radio" name="letters" value="1" checked /><span>A</span></label>
+          <label class="chip"><input type="radio" name="letters" value="2" /><span>AB</span></label>
+        </fieldset>
+        <fieldset><legend>Size</legend>
+          <label class="chip"><input type="radio" name="size" value="s" /><span>S</span></label>
+          <label class="chip"><input type="radio" name="size" value="m" checked /><span>M</span></label>
+          <label class="chip"><input type="radio" name="size" value="l" /><span>L</span></label>
+        </fieldset>
+        <fieldset><legend>Spacing</legend>
+          <label class="chip"><input type="radio" name="spacing" value="tight" /><span><i style="letter-spacing: -0.06em">Tight</i></span></label>
+          <label class="chip"><input type="radio" name="spacing" value="normal" checked /><span>Normal</span></label>
+          <label class="chip"><input type="radio" name="spacing" value="wide" /><span><i style="letter-spacing: 0.14em">Wide</i></span></label>
+        </fieldset>
+        <fieldset><legend>Case</legend>
+          <label class="chip"><input type="radio" name="case" value="none" checked /><span>Aa</span></label>
+          <label class="chip"><input type="radio" name="case" value="lower" /><span>aa</span></label>
+          <label class="chip"><input type="radio" name="case" value="upper" /><span>AA</span></label>
+        </fieldset>
+      </form>
+    </main>
+    <section id="about" aria-label="About">
+      <div>
+        <h3>Free logo and icon maker</h3>
+        <p>EasyLogo is a free online logo maker built and maintained by Zices. Type a name to get a matching app icon from its initials and a wordmark from the whole name, in fonts like Pacifico, Fredoka and Nunito, with your own colors, gradients and 3D or sticker effects.</p>
+      </div>
+      <div>
+        <h3>No login, no watermark</h3>
+        <p>No login, no watermark and no upload. Every logo is drawn in your browser as real vector outlines, so the SVG, PNG and ICO files work anywhere, from favicons and app icons to websites and print.</p>
+      </div>
+    </section>
+    <footer>
+      EasyLogo is <a href="https://github.com/iamzices/logo-maker" target="_blank" rel="noreferrer">open source on GitHub</a>. Find Zices on GitHub as <a href="https://github.com/iamzices" target="_blank" rel="noreferrer">@iamzices</a>, or see more projects at <a href="https://zices.com" target="_blank" rel="noreferrer">zices.com</a>.
+    </footer>
+    <script type="module">
+      const FONTS = [['pacifico', 'Pacifico', 400], ['fredoka', 'Fredoka', 600], ['baloo-2', 'Baloo 2', 700], ['sniglet', 'Sniglet', 800], ['chewy', 'Chewy', 400], ['bagel-fat-one', 'Bagel Fat One', 400], ['comfortaa', 'Comfortaa', 700], ['nunito', 'Nunito', 800], ['righteous', 'Righteous', 400], ['lobster', 'Lobster', 400], ['caveat', 'Caveat', 700], ['playfair-display', 'Playfair Display', 800], ['space-grotesk', 'Space Grotesk', 700], ['silkscreen', 'Silkscreen', 400], ['dm-sans', 'DM Sans', 600, -0.022]]
+      const COLORS = [['Pink', '#ff9ecd'], ['Coral', '#ff8a7a'], ['Peach', '#ffb38a'], ['Lemon', '#ffe17a'], ['Mint', '#8ee6b0'], ['Sky', '#8fd0ff'], ['Lavender', '#b9a4ff'], ['White', '#fafafa'], ['Ink', '#26262c']]
+      const SHAPES = {
+        rounded: { box: [38, 36], body: fill => `<rect width="64" height="64" rx="14" fill="${fill}"/>` },
+        circle: { box: [34, 30], body: fill => `<circle cx="32" cy="32" r="32" fill="${fill}"/>` },
+        blob: { box: [34, 30], body: fill => `<path fill="${fill}" d="M35 2.5c15 1 27 12.5 26.5 30-.5 17-13.5 29.5-31 29C13.5 61 2 49 2.5 32 3 14 18.5 1.5 35 2.5Z"/>` },
+        square: { box: [40, 38], body: fill => `<rect width="64" height="64" fill="${fill}"/>` },
+        none: { box: [52, 50], body: () => '' },
+      }
+      const SIZES = { s: 0.8, m: 1, l: 1.15 }, SPACING = { tight: -0.04, normal: 0, wide: 0.1 }
+      const EFFECTS = { none: [0, 0, 0, 0], '3d': [0, 0, 0.06, 0.06], sticker: [0.05, 0.05, 0.05, 0.05] }
+      const EM = 1000, PAD = 8, STEPS = 12, PNG_HEIGHT = 1024, PNG_MAX_WIDTH = 8192
+      const $ = id => document.getElementById(id), form = $('controls').elements
+
+      const swatches = name => COLORS.map(([label, hex], i) => `<label class="chip swatch"><input type="radio" name="${name}" value="${hex}" aria-label="${label}"${name === 'color' && !i ? ' checked' : ''} /><span style="--s: ${hex}"></span></label>`).join('')
+      $('fonts').insertAdjacentHTML('beforeend', FONTS.map(([id, name], i) => `<label class="chip"><input type="radio" name="font" value="${id}"${i ? '' : ' checked'} /><span style="font-family: wm-${id}, 'DM Sans'">${name}</span></label>`).join(''))
+      $('colors').querySelector('legend').insertAdjacentHTML('afterend', swatches('color'))
+      $('text-colors').querySelector('.same').insertAdjacentHTML('afterend', swatches('text'))
+
+      const fonts = {}
+      for (const [id, , weight, tracking = 0] of FONTS) {
+        fetch(`https://cdn.jsdelivr.net/npm/@fontsource/${id}@5.3.0/files/${id}-latin-${weight}-normal.woff`)
+          .then(response => { if (!response.ok) throw new Error(response.statusText); return response.arrayBuffer() })
+          .then(bytes => {
+            document.fonts.add(new FontFace(`wm-${id}`, bytes))
+            fonts[id] = Object.assign(opentype.parse(bytes), { tracking })
+            if (form.font.value === id) render()
+          })
+          .catch(() => {
+            $('fonts').querySelector(`[value="${id}"]`).disabled = true
+            if (form.font.value === id) $('error').textContent = 'This font could not be loaded. Try another one.'
+          })
+      }
+
+      const rgb = hex => hex.match(/\w\w/g).map(x => parseInt(x, 16))
+      const toHex = channels => '#' + channels.map(v => Math.round(v).toString(16).padStart(2, '0')).join('')
+      const mix = (a, b, t) => toHex(rgb(a).map((v, i) => v + (rgb(b)[i] - v) * t))
+      const isLight = hex => { const [r, g, b] = rgb(hex); return 0.2126 * r + 0.7152 * g + 0.0722 * b > 140 }
+      const partner = hex => isLight(hex) ? mix(hex, '#0f0f10', 0.8) : mix(hex, '#ffffff', 0.88)
+      const shade = hex => isLight(hex) ? mix(hex, '#0f0f10', 0.45) : mix(hex, '#ffffff', 0.3)
+      const second = hex => mix(hue(hex, 45), '#ffffff', 0.15)
+      const round = n => +n.toFixed(2)
+      const svg = ({ w, h, body }, size) => `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"${size ? ` width="${size.w}" height="${size.h}"` : ''} viewBox="0 0 ${w} ${h}">${body}</svg>`
+
+      function hue(hex, degrees) {
+        const [r, g, b] = rgb(hex).map(v => v / 255), max = Math.max(r, g, b), min = Math.min(r, g, b), d = max - min, l = (max + min) / 2
+        const s = d && d / (1 - Math.abs(2 * l - 1)), h = (d && (max === r ? (g - b) / d : max === g ? (b - r) / d + 2 : (r - g) / d + 4) * 60) + degrees
+        return toHex([0, 8, 4].map(n => { const k = ((n + h / 30) % 12 + 12) % 12; return 255 * (l - s * Math.min(l, 1 - l) * Math.max(-1, Math.min(k - 3, 9 - k, 1))) }))
+      }
+
+      function paint(id, hex, gradient) {
+        const def = gradient ? `<linearGradient id="${id}" x2="1" y2="1"><stop stop-color="${hex}"/><stop offset="1" stop-color="${second(hex)}"/></linearGradient>` : ''
+        return { hex, def, fill: gradient ? `url(#${id})` : hex }
+      }
+
+      function glyphs(font, text, tracking, effect) {
+        const options = { letterSpacing: tracking }, b = font.getPath(text, 0, 0, EM, options).getBoundingBox(), [l, t, r, d] = EFFECTS[effect].map(v => v * EM)
+        return { box: [b.x1 - l, b.y1 - t, b.x2 + r, b.y2 + d], at: (x, y, size) => font.getPath(text, x, y, size, options).toPathData(2) }
+      }
+
+      function ink(id, d, size, { hex, def, fill }, effect) {
+        if (effect === 'none') return `${def && `<defs>${def}</defs>`}<path fill="${fill}" d="${d}"/>`
+        const use = attributes => `<use xlink:href="#${id}" ${attributes}/>`
+        const under = effect === 'sticker' ? use(`fill="#fff" stroke="#fff" stroke-width="${round(EFFECTS.sticker[0] * 2 * size)}" stroke-linejoin="round"`)
+          : Array.from({ length: STEPS }, (_, i) => { const o = round(EFFECTS['3d'][2] * size * (STEPS - i) / STEPS); return use(`fill="${shade(hex)}" x="${o}" y="${o}"`) }).join('')
+        return `<defs>${def}<path id="${id}" d="${d}"/></defs>${under}${use(`fill="${fill}"`)}`
+      }
+
+      function icon({ box: [x1, y1, x2, y2], at }, { shape, size, back, fore, effect }) {
+        const [bw, bh] = SHAPES[shape].box.map(v => v * SIZES[size]), s = Math.min(bw / (x2 - x1), bh / (y2 - y1))
+        const d = at(32 - s * (x1 + x2) / 2, 32 - s * (y1 + y2) / 2, EM * s)
+        return { w: 64, h: 64, body: `${back.def && `<defs>${back.def}</defs>`}${SHAPES[shape].body(back.fill)}${ink('icon-ink', d, EM * s, fore, effect)}` }
+      }
+
+      function wordmark({ box: [x1, y1, x2, y2], at }, fore, effect) {
+        return { w: round(x2 - x1 + 2 * PAD), h: round(y2 - y1 + 2 * PAD), body: ink('wordmark-ink', at(PAD - x1, PAD - y1, EM), EM, fore, effect) }
+      }
+
+      let marks = {}, slug = '', shown = {}
+      function render() {
+        const v = name => form[name].value, color = v('color') || v('custom'), textColor = v('text') === 'same' ? color : v('text') || v('text-custom')
+        const gradient = v('fill') === 'gradient', shape = v('shape'), effect = v('effect'), font = fonts[v('font')]
+        document.documentElement.style.setProperty('--c', color)
+        document.documentElement.style.setProperty('--c2', second(color))
+        document.documentElement.style.setProperty('--p', partner(color))
+        $('icon-tile').classList.toggle('light', shape === 'none' && !isLight(color))
+        $('wordmark-tile').classList.toggle('light', !isLight(textColor))
+        if (!font) return
+        const typed = $('name').value.trim().normalize('NFC'), cased = { none: typed, lower: typed.toLocaleLowerCase(), upper: typed.toLocaleUpperCase() }[v('case')]
+        const missing = [...new Set(cased)].filter(c => !font.charToGlyphIndex(c))
+        const text = [...cased].filter(c => !missing.includes(c)).join('').trim()
+        const words = text.split(/[\s_.-]+|(?<=\p{Ll})(?=\p{Lu})/u).filter(Boolean)
+        const letters = v('letters') === '2' && words.length > 1 ? words.slice(0, 2).map(w => [...w][0]).join('') : [...text].slice(0, +v('letters')).join('')
+        const tracking = font.tracking + SPACING[v('spacing')], solid = v('style') === 'solid' && shape !== 'none'
+        marks = text ? {
+          icon: icon(glyphs(font, letters, tracking, effect), { shape, size: v('size'), effect, back: paint('icon-bg', solid ? color : partner(color), solid && gradient), fore: paint('icon-fg', solid ? partner(color) : color, !solid && gradient) }),
+          wordmark: wordmark(glyphs(font, text, tracking, effect), paint('wordmark-fg', textColor, gradient), effect),
+        } : {}
+        slug = text.normalize('NFKD').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'logo'
+        $('error').textContent = missing.length ? `Not in this font: ${missing.join(' ')}` : ''
+        $('name').setAttribute('aria-invalid', missing.length > 0)
+        for (const [id, label] of [['icon', `Icon ${letters}`], ['wordmark', `Wordmark ${text}`]]) {
+          const markup = marks[id] ? svg(marks[id]) : ''
+          if (markup !== shown[id]) $(id).innerHTML = shown[id] = markup
+          $(id).setAttribute('aria-label', label)
+        }
+        for (const b of document.querySelectorAll('.downloads button')) b.disabled = !text
+      }
+
+      async function png(mark, w, h) {
+        const img = new Image()
+        img.src = URL.createObjectURL(new Blob([svg(mark, { w, h })], { type: 'image/svg+xml' }))
+        try { await img.decode() } finally { URL.revokeObjectURL(img.src) }
+        const canvas = Object.assign(document.createElement('canvas'), { width: w, height: h })
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h)
+        return new Promise(resolve => canvas.toBlob(resolve, 'image/png'))
+      }
+
+      async function ico(mark, sizes = [16, 32, 48]) {
+        const images = await Promise.all(sizes.map(s => png(mark, s, s).then(b => b.arrayBuffer())))
+        const head = new DataView(new ArrayBuffer(6 + 16 * sizes.length))
+        head.setUint16(2, 1, true)
+        head.setUint16(4, sizes.length, true)
+        let offset = head.byteLength
+        sizes.forEach((s, i) => {
+          const at = 6 + 16 * i
+          head.setUint8(at, s)
+          head.setUint8(at + 1, s)
+          head.setUint16(at + 4, 1, true)
+          head.setUint16(at + 6, 32, true)
+          head.setUint32(at + 8, images[i].byteLength, true)
+          head.setUint32(at + 12, offset, true)
+          offset += images[i].byteLength
+        })
+        return new Blob([head, ...images], { type: 'image/x-icon' })
+      }
+
+      async function download(markName, type) {
+        const mark = marks[markName]
+        if (!mark) return
+        const k = Math.min(PNG_HEIGHT / mark.h, PNG_MAX_WIDTH / mark.w)
+        const blob = type === 'svg' ? new Blob([svg(mark)], { type: 'image/svg+xml' })
+          : type === 'png' ? await png(mark, Math.round(mark.w * k), Math.round(mark.h * k)) : await ico(mark)
+        const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: `${slug}-${markName}.${type}` })
+        a.click()
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000)
+      }
+
+      $('name').addEventListener('input', render)
+      $('controls').addEventListener('input', render)
+      for (const picker of form) if (picker.type === 'color') picker.addEventListener('click', () => {
+        for (const radio of picker.closest('fieldset').querySelectorAll('[type=radio]')) radio.checked = false
+        render()
+      })
+      $('marks').addEventListener('click', event => { const b = event.target.closest('[data-type]'); if (b) download(b.dataset.mark, b.dataset.type) })
+      $('name').select()
+      render()
+    </script>
+  </body>
+</html>
